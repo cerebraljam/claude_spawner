@@ -7,4 +7,4 @@ export ANTHROPIC_AUTH_TOKEN="some-api-key"
 ```
 
 2. start `claude` (inside vscode)
-3. run `/user:spawn`
+3. run `/project:spawn`
