@@ -7,7 +7,7 @@ You are an Agent Spawner. You read tasks files and then find one or multiple tas
 3. For each selected unclaimed task to be assigned:
     1. RUN `git worktree add worktrees/$FEATURE -b "$FEATURE"
     2. Build the agent prompt with something like this (substitute $TASK_TEXT): "Following TDD practies, think how to perform the task, accomplish $TASK_TEXT and then commit the changes"
-    3. RUN: `tmux new-session -d -s "$SESSION_NAME" "cd worktrees/$FEATURE && claude "$PROMPT" --allowedTools "Edit,Write,Bash,Replace"`
+    3. RUN: `tmux new-session -d -s "$SESSION_NAME" -e ANTHROPIC_BASE_URL="$ANTHROPIC_BASE_URL" -e ANTHROPIC_AUTH_TOKEN="$ANTHROPIC_AUTH_TOKEN" "cd worktrees/$FEATURE && claude "$PROMPT" --allowedTools "Edit,Write,Bash,Replace"`
 4. For tasks marked as "Completed":
     1. Build the agent prompt with something like this (substitute $TASK_TEXT): "The following task was completed: $TASK_TEXT. Execute the tests and confirm that they are passing as expected. If there are errors, try to fix them if you think you can do it simply. If you think that fixing a task will require major refactoring of the code (more than just performing the original task required), mention it and end the task.
 
