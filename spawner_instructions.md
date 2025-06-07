@@ -1,11 +1,10 @@
 # to use the spawner
 
-(Optional)
-customize the model
+1. customize the model
 ```
 export ANTHROPIC_BASE_URL="https://llm.proxy"
 export ANTHROPIC_AUTH_TOKEN="some-api-key"
 ```
 
-1. start `claude` (inside vscode)
-2. run `/user:spawn`
+2. start `claude` (inside vscode)
+3. run `/user:spawn`
