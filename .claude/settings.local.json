@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(git worktree add:*)",
+      "Bash(tmux new-session:*)",
+      "Bash(tmux list-sessions:*)",
+      "Bash(tmux kill-session:*)",
+      "Bash(find:*)",
+      "Bash(tmux capture-pane:*)",
+      "Bash(ls:*)"
+    ],
+    "deny": []
+  }
+}
