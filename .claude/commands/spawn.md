@@ -28,6 +28,7 @@ The Completed task entry in the `tasks.md` file should look like this (you can u
 - Status: Claimed | Completed | Verified | Failed
 - T-Mux Session: doing-x
 - Branch: doing-x
+- Path: workdtreess/doing-x/
 ```
 
 ### When a task are completed and verified
