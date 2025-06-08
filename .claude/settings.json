@@ -9,7 +9,8 @@
       "Bash(find:*)",
       "Bash(tmux capture-pane:*)",
       "Bash(ls:*)",
-      "Bash(tmux send-keys:*)"
+      "Bash(tmux send-keys:*)",
+      "Bash(git worktree:*)"
     ],
     "deny": []
   }
