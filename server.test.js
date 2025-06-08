@@ -11,12 +11,18 @@ describe('TR-808 Express Server', () => {
     app = require('./server.js');
   });
 
-  afterEach((done) => {
-    if (server) {
-      server.close(done);
-    } else {
-      done();
+  afterEach(async () => {
+    // Properly close server and any open connections
+    if (server && server.listening) {
+      await new Promise((resolve) => {
+        server.close(() => {
+          resolve();
+        });
+      });
     }
+    
+    // Clear any intervals/timeouts
+    jest.clearAllTimers();
   });
 
   test('should respond to GET /', async () => {

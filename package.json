@@ -1,5 +1,5 @@
 {
-  "name": "tr808-drum-machine",
+  "name": "tr808-test-fixes",
   "version": "1.0.0",
   "description": "Roland TR-808 drum machine web application backend",
   "main": "server.js",
