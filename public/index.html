@@ -7,8 +7,208 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Roland TR-808 Drum Machine</h1>
-    <p>Virtual TR-808 interface coming soon...</p>
+    <div class="tr808-machine">
+        <header class="tr808-header">
+            <h1>Roland TR-808 Rhythm Composer</h1>
+        </header>
+
+        <!-- Step Sequencer Section -->
+        <section class="step-sequencer">
+            <h2>Step Sequencer</h2>
+            <div class="step-buttons">
+                <button class="step-button" data-step="1">1</button>
+                <button class="step-button" data-step="2">2</button>
+                <button class="step-button" data-step="3">3</button>
+                <button class="step-button" data-step="4">4</button>
+                <button class="step-button" data-step="5">5</button>
+                <button class="step-button" data-step="6">6</button>
+                <button class="step-button" data-step="7">7</button>
+                <button class="step-button" data-step="8">8</button>
+                <button class="step-button" data-step="9">9</button>
+                <button class="step-button" data-step="10">10</button>
+                <button class="step-button" data-step="11">11</button>
+                <button class="step-button" data-step="12">12</button>
+                <button class="step-button" data-step="13">13</button>
+                <button class="step-button" data-step="14">14</button>
+                <button class="step-button" data-step="15">15</button>
+                <button class="step-button" data-step="16">16</button>
+            </div>
+        </section>
+
+        <!-- Instrument Controls Section -->
+        <section class="instruments">
+            <h2>Instruments</h2>
+            
+            <!-- Bass Drum -->
+            <div class="instrument-group" data-instrument="BD">
+                <label>Bass Drum (BD)</label>
+                <input type="range" data-control="level" data-instrument="BD" min="0" max="100" value="80">
+                <input type="range" data-control="tone" data-instrument="BD" min="0" max="100" value="50">
+                <input type="range" data-control="decay" data-instrument="BD" min="0" max="100" value="50">
+            </div>
+
+            <!-- Snare Drum -->
+            <div class="instrument-group" data-instrument="SD">
+                <label>Snare Drum (SD)</label>
+                <input type="range" data-control="level" data-instrument="SD" min="0" max="100" value="80">
+                <input type="range" data-control="tone" data-instrument="SD" min="0" max="100" value="50">
+                <input type="range" data-control="snappy" data-instrument="SD" min="0" max="100" value="50">
+            </div>
+
+            <!-- Low Conga / Low Tom -->
+            <div class="instrument-group" data-instrument="LC">
+                <label>Low Conga (LC)</label>
+                <input type="range" data-control="tuning" data-pair="LC-LT" min="0" max="100" value="50">
+            </div>
+
+            <div class="instrument-group" data-instrument="LT">
+                <label>Low Tom (LT)</label>
+                <input type="range" data-control="level" data-instrument="LT" min="0" max="100" value="80">
+            </div>
+
+            <!-- Mid Conga / Mid Tom -->
+            <div class="instrument-group" data-instrument="MC">
+                <label>Mid Conga (MC)</label>
+                <input type="range" data-control="tuning" data-pair="MC-MT" min="0" max="100" value="50">
+            </div>
+
+            <div class="instrument-group" data-instrument="MT">
+                <label>Mid Tom (MT)</label>
+                <input type="range" data-control="level" data-instrument="MT" min="0" max="100" value="80">
+            </div>
+
+            <!-- Hi Conga / Hi Tom -->
+            <div class="instrument-group" data-instrument="HC">
+                <label>Hi Conga (HC)</label>
+                <input type="range" data-control="tuning" data-pair="HC-HT" min="0" max="100" value="50">
+            </div>
+
+            <div class="instrument-group" data-instrument="HT">
+                <label>Hi Tom (HT)</label>
+                <input type="range" data-control="level" data-instrument="HT" min="0" max="100" value="80">
+            </div>
+
+            <!-- Claves -->
+            <div class="instrument-group" data-instrument="CL">
+                <label>Claves (CL)</label>
+            </div>
+
+            <!-- Rim Shot -->
+            <div class="instrument-group" data-instrument="RS">
+                <label>Rim Shot (RS)</label>
+                <input type="range" data-control="level" data-instrument="RS" min="0" max="100" value="80">
+            </div>
+
+            <!-- Maracas -->
+            <div class="instrument-group" data-instrument="MA">
+                <label>Maracas (MA)</label>
+            </div>
+
+            <!-- Hand Clap -->
+            <div class="instrument-group" data-instrument="CP">
+                <label>Hand Clap (CP)</label>
+                <input type="range" data-control="level" data-instrument="CP" min="0" max="100" value="80">
+            </div>
+
+            <!-- Cow Bell -->
+            <div class="instrument-group" data-instrument="CB">
+                <label>Cow Bell (CB)</label>
+                <input type="range" data-control="level" data-instrument="CB" min="0" max="100" value="80">
+            </div>
+
+            <!-- Cymbal -->
+            <div class="instrument-group" data-instrument="CY">
+                <label>Cymbal (CY)</label>
+                <input type="range" data-control="level" data-instrument="CY" min="0" max="100" value="80">
+                <input type="range" data-control="tone" data-instrument="CY" min="0" max="100" value="50">
+                <input type="range" data-control="decay" data-instrument="CY" min="0" max="100" value="50">
+            </div>
+
+            <!-- Open Hi Hat -->
+            <div class="instrument-group" data-instrument="OH">
+                <label>Open Hi Hat (OH)</label>
+                <input type="range" data-control="level" data-instrument="OH" min="0" max="100" value="80">
+                <input type="range" data-control="decay" data-instrument="OH" min="0" max="100" value="50">
+            </div>
+
+            <!-- Closed Hi Hat -->
+            <div class="instrument-group" data-instrument="CH">
+                <label>Closed Hi Hat (CH)</label>
+                <input type="range" data-control="level" data-instrument="CH" min="0" max="100" value="80">
+            </div>
+        </section>
+
+        <!-- Control Section -->
+        <section class="controls">
+            <h2>Controls</h2>
+            
+            <!-- Tempo Control -->
+            <div class="control-group">
+                <label>Tempo</label>
+                <input type="range" class="tempo-control" min="40" max="300" value="120">
+            </div>
+
+            <!-- Master Volume -->
+            <div class="control-group">
+                <label>Master Volume</label>
+                <input type="range" class="master-volume" min="0" max="100" value="80">
+            </div>
+
+            <!-- Accent Control -->
+            <div class="control-group">
+                <label>Accent</label>
+                <input type="range" class="accent-control" min="0" max="100" value="50">
+            </div>
+
+            <!-- Mode Selector -->
+            <div class="control-group">
+                <label>Mode</label>
+                <select class="mode-selector">
+                    <option value="pattern-write-1">Pattern Write 1st Part</option>
+                    <option value="pattern-write-2">Pattern Write 2nd Part</option>
+                    <option value="manual-play">Manual Play</option>
+                    <option value="rhythm-track-play">Rhythm Track Play</option>
+                    <option value="rhythm-track-compose">Rhythm Track Compose</option>
+                    <option value="pattern-clear">Pattern Clear</option>
+                </select>
+            </div>
+
+            <!-- Transport Controls -->
+            <div class="transport-controls">
+                <button class="start-stop">Start/Stop</button>
+                <button class="tap-button">Tap</button>
+                <button class="clear-button">Clear</button>
+            </div>
+
+            <!-- Pattern Variation -->
+            <div class="pattern-variation">
+                <label>Basic Variation</label>
+                <button data-variation="A">A</button>
+                <button data-variation="AB">AB</button>
+                <button data-variation="B">B</button>
+            </div>
+
+            <!-- Basic Rhythm Buttons -->
+            <div class="basic-rhythm">
+                <label>Basic Rhythm</label>
+                <div class="rhythm-buttons">
+                    <button data-rhythm="1">1</button>
+                    <button data-rhythm="2">2</button>
+                    <button data-rhythm="3">3</button>
+                    <button data-rhythm="4">4</button>
+                    <button data-rhythm="5">5</button>
+                    <button data-rhythm="6">6</button>
+                    <button data-rhythm="7">7</button>
+                    <button data-rhythm="8">8</button>
+                    <button data-rhythm="9">9</button>
+                    <button data-rhythm="10">10</button>
+                    <button data-rhythm="11">11</button>
+                    <button data-rhythm="12">12</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
     <script src="app.js"></script>
 </body>
 </html>

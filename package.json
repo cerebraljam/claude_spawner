@@ -16,7 +16,8 @@
   "devDependencies": {
     "jest": "^29.7.0",
     "supertest": "^6.3.3",
-    "nodemon": "^3.0.2"
+    "nodemon": "^3.0.2",
+    "jsdom": "^23.0.1"
   },
   "keywords": ["drum-machine", "tr-808", "web-audio", "music"],
   "author": "",
