@@ -13,3 +13,9 @@ After the tasks are started, it is important to actually observe the virtual ter
 ```
 tmux attach -t visual-interface
 ```
+
+With the tmux open in different terminals, it's possible to see when tasks are completed. In the main terminal (the spawner), you can write:
+```
+what is the status of the tasks?
+```
+and the main session will check what is happening in the tasks, and carry on from there.
