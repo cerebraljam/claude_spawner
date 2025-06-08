@@ -1,5 +1,6 @@
 # Create a virtual Drum Machine in a web page
 
+Source: https://en.wikipedia.org/wiki/Roland_TR-808
 ```
 # Roland TR-808
 
@@ -28,6 +29,7 @@ The goal of this application is to recreate this Roland TR-808 in a web page.
 The application is made in HTML, CSS, Javascript, Canvas, or any necessary client side technologies as necessary.
 The application is served by a NodeJS server running locally.
 
+Source: https://support.roland.com/hc/en-us/articles/201963539-TR-808-Technical-Specifications
 ```
  TR-808: Technical Specifications
 
