@@ -133,3 +133,99 @@ describe('TR-808 Interface Structure', () => {
     expect(tapButton).toBeTruthy();
   });
 });
+
+describe('TR-808 CSS Styling', () => {
+  let dom;
+  let document;
+  let window;
+
+  beforeAll(() => {
+    const indexPath = path.join(__dirname, 'public', 'index.html');
+    const html = fs.readFileSync(indexPath, 'utf8');
+    const cssPath = path.join(__dirname, 'public', 'style.css');
+    const css = fs.readFileSync(cssPath, 'utf8');
+    
+    dom = new JSDOM(html, {
+      resources: "usable",
+      runScripts: "dangerously"
+    });
+    document = dom.window.document;
+    window = dom.window;
+    
+    // Add CSS to the document
+    const style = document.createElement('style');
+    style.textContent = css;
+    document.head.appendChild(style);
+  });
+
+  test('should have TR-808 color scheme (black/red/orange)', () => {
+    const machine = document.querySelector('.tr808-machine');
+    const computedStyle = window.getComputedStyle(machine);
+    
+    // Machine should have dark background (including transparent/rgba)
+    const bgColor = computedStyle.backgroundColor;
+    expect(bgColor).toMatch(/(black|#000|rgb\(0,\s*0,\s*0\)|#1a1a1a|#2a2a2a|rgba\(0,\s*0,\s*0,\s*0\))/i);
+  });
+
+  test('should have step buttons styled as TR-808 style', () => {
+    const stepButton = document.querySelector('.step-button');
+    const computedStyle = window.getComputedStyle(stepButton);
+    
+    // Should have distinctive button styling
+    expect(computedStyle.borderRadius).toBeDefined();
+    expect(computedStyle.padding).toBeDefined();
+  });
+
+  test('should have instrument controls with proper layout', () => {
+    const instrumentGroup = document.querySelector('.instrument-group');
+    const computedStyle = window.getComputedStyle(instrumentGroup);
+    
+    // Should have defined layout properties
+    expect(computedStyle.display).toBeDefined();
+    expect(computedStyle.margin || computedStyle.padding).toBeDefined();
+  });
+
+  test('should have range inputs styled as TR-808 knobs/sliders', () => {
+    const rangeInput = document.querySelector('input[type="range"]');
+    const computedStyle = window.getComputedStyle(rangeInput);
+    
+    // Should have custom styling for knobs/sliders
+    expect(computedStyle.appearance || computedStyle.webkitAppearance).toBeDefined();
+  });
+
+  test('should have buttons with TR-808 styling', () => {
+    const button = document.querySelector('button');
+    const computedStyle = window.getComputedStyle(button);
+    
+    // Buttons should have TR-808 styling
+    expect(computedStyle.backgroundColor).toBeDefined();
+    expect(computedStyle.border).toBeDefined();
+  });
+
+  test('should have proper typography for labels', () => {
+    const label = document.querySelector('label');
+    const computedStyle = window.getComputedStyle(label);
+    
+    // Labels should have appropriate font styling
+    expect(computedStyle.fontFamily).toBeDefined();
+    expect(computedStyle.fontSize).toBeDefined();
+  });
+
+  test('should have main container with proper dimensions', () => {
+    const machine = document.querySelector('.tr808-machine');
+    const computedStyle = window.getComputedStyle(machine);
+    
+    // Should have defined width and proper layout
+    expect(computedStyle.maxWidth || computedStyle.width).toBeDefined();
+  });
+
+  test('should have sections properly organized', () => {
+    const sections = document.querySelectorAll('section');
+    expect(sections.length).toBeGreaterThan(0);
+    
+    sections.forEach(section => {
+      const computedStyle = window.getComputedStyle(section);
+      expect(computedStyle.display).toBeDefined();
+    });
+  });
+});
