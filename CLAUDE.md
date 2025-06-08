@@ -14,6 +14,8 @@ Then read @tasks.md to understand what has to be done, and what was done.
 * Keep files small. 
 * Keep the functions small.
 * Use types variables.
+* When doing `git add`, list the files to be added by name. Do not use `git add .` since they could include junk in the repository.
+* If temporary folders, cache folders or any file or directory are added and shouldn't be included in a commit, add them to `.gitignore`
 
 
 # Summary instructions
