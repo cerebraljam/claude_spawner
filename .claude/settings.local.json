@@ -8,7 +8,8 @@
       "Bash(tmux kill-session:*)",
       "Bash(find:*)",
       "Bash(tmux capture-pane:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(tmux send-keys:*)"
     ],
     "deny": []
   }
