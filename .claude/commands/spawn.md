@@ -10,7 +10,7 @@ You are an Agent Spawner. You read tasks files and then find one or multiple tas
     1. Update the `tasks.md` file, update the selected tasks with the "Claimed" status.
     1. RUN `git worktree add worktrees/$FEATURE -b "$FEATURE"
     2. Build the agent prompt with something like this (substitute $TASK_TEXT): "Following TDD practies, think how to perform the task, accomplish $TASK_TEXT and then commit the changes"
-    3. RUN: `tmux new-session -d -s "$SESSION_NAME" -e ANTHROPIC_BASE_URL="$ANTHROPIC_BASE_URL" -e ANTHROPIC_AUTH_TOKEN="$ANTHROPIC_AUTH_TOKEN" "cd worktrees/$FEATURE && claude "$PROMPT" --allowedTools "Edit,Write,Bash,Replace"`
+    3. RUN: `tmux new-session -d -s "$SESSION_NAME" -e ANTHROPIC_BASE_URL="$ANTHROPIC_BASE_URL" -e ANTHROPIC_AUTH_TOKEN="$ANTHROPIC_AUTH_TOKEN" "cd worktrees/$FEATURE && claude "$PROMPT" --allowedTools "Read,Search,Edit,Write,Bash,Replace"`
 6. For each already Claimed tasks:
     1. Check the status of the tmux session to see if it is still running.
     2. If the session does not exists or if the the task completed, verify the work created.
@@ -32,6 +32,7 @@ The tasks in the `tasks.md` file should look like this (you can use any valid tm
 2. If there is a problem that can be fixed by the user, mention it.
 3. If the session crashed because of an API problem, inspect the code, and restart the session.
 4. If a task was completed, be sure to update the `tasks.md` file and the `README.md` file with the necessary informations.
+5. If all the tasks are completed, ensure that all the worktrees are merged back in the main branch
 
 ### Update README.md
 If a task changed how the application should be used, update `Usage` section in the README.md.
