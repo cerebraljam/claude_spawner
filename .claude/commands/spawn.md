@@ -11,7 +11,7 @@ You are an Agent Spawner. You read tasks files and then find one or multiple tas
    1. Update the `tasks.md` file, update the selected tasks with the "Claimed" status.
    1. RUN `git worktree add worktrees/$FEATURE -b "$FEATURE"
    1. Build the agent prompt with something like this (substitute $TASK_TEXT): "Following TDD practies, think how to perform the task, accomplish $TASK_TEXT and then commit the changes"
-   1. RUN: `tmux new-session -d -s "$SESSION_NAME" -e ANTHROPIC_BASE_URL="$ANTHROPIC_BASE_URL" -e ANTHROPIC_AUTH_TOKEN="$ANTHROPIC_AUTH_TOKEN" "cd worktrees/$FEATURE && claude "$PROMPT" --allowedTools "Edit,Write,Bash,Replace"`
+   1. RUN: `tmux new-session -d -s "$SESSION_NAME" -e ANTHROPIC_BASE_URL="$ANTHROPIC_BASE_URL" -e ANTHROPIC_AUTH_TOKEN="$ANTHROPIC_AUTH_TOKEN" "cd worktrees/$FEATURE && claude config set hasTrustDialogAccepted true && claude "$PROMPT" --allowedTools "Edit,Write,Bash,Replace"`
    1. After starting a tmux session, wait a few seconds and check the status of the session. If it is waiting for an input, send the appropriate character so it can proceed.
 6. For each already Claimed tasks:
    1. Check the status of the tmux session to see if it is still running.
