@@ -17,8 +17,14 @@ The disadvantages:
 
 After rounding some corners, I could get a full project running while just babysitting Claude while it was doing the job.
 
-* See `.claude/commands/spawn.md` for the prompt
+# How to use:
+
 * See `spawner_instructions.md` for instruction
-* See branch `roland-tr-808` for a full example of completed project using this workflow
+* See `.claude/commands/spawn.md` for the prompt
+
+# Examples
+
+* See `examples/` for a full examples of completed projects using this workflow
+
 
 

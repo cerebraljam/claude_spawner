@@ -1,12 +1,14 @@
 
 # Context
 
-Start by reading @README.md to understand what the project is about.
+Start by reading @PROJECT.md to understand what the project is about.
 Then read @tasks.md to understand what has to be done, and what was done.
 
 # Coding Practices
 
-* Follow Test Driven Development (TDD) practices. Write tests based on expected input/output pairs.
+* Follow Test Driven Development (TDD) practices. 
+    * Write tests based on expected input/output pairs.
+    * When writing tests, split the tasks in smaller parts instead of trying to write them all all at once.
     * Run the tests and confirm they fail.
     * Commit the tests when all the tests are written.
     * Write code that passes the tests.
