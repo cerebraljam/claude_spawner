@@ -1,8 +1,8 @@
 
 # Context
 
-Start by reading @PROJECT.md to understand what the project is about.
-Then read @tasks.md to understand what has to be done, and what was done.
+Start by reading @PROJECT_CLEAN.md to understand what the project is about.
+Then read @TASKS.md to understand what has to be done, and what was done.
 
 # Coding Practices
 
@@ -13,11 +13,29 @@ Then read @tasks.md to understand what has to be done, and what was done.
     * Commit the tests when all the tests are written.
     * Write code that passes the tests.
     * Ensure that the code isn't overfitting or cheating the tests.
+    * Prefer running single tests, and not the whole test suite, for performance
 * Keep files small. 
 * Keep the functions small.
 * Use types variables.
+
+
+## About Git
 * When doing `git add`, list the files to be added by name. Do not use `git add .` since they could include junk in the repository.
 * If temporary folders, cache folders or any file or directory are added and shouldn't be included in a commit, add them to `.gitignore`
+
+## When coding with nodejs
+
+### Bash commands
+- npm run build: Build the project
+- npm run typecheck: Run the typechecker
+
+### Code Style
+- Use ES modules (import/export) syntax, not CommonJS (require)
+- Destructure imports when possible (eg. import { foo } from 'bar')
+- Write elegant and small functions. Minimize the code size as much as possible.
+
+### Workflow
+- Be sure to typecheck when you’re done making a series of code changes
 
 
 # Summary instructions

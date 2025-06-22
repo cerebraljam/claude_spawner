@@ -12,21 +12,23 @@ fi
 
 # Load environment variables from .env file if it exists
 ENV_VARS=""
-if [ -f ".env" ]; then
-    echo "Loading environment variables from .env file..."
-    # Read .env file, skip comments and empty lines, export variables
-    while IFS= read -r line || [ -n "$line" ]; do
-        # Skip comments and empty lines
-        if [[ "$line" =~ ^[[:space:]]*# ]] || [[ -z "${line// }" ]]; then
-            continue
-        fi
-        # Export the variable
-        export "$line"
-        # Build tmux -e arguments dynamically
-        VAR_NAME=$(echo "$line" | cut -d'=' -f1)
-        ENV_VARS="$ENV_VARS -e $VAR_NAME=\"\${$VAR_NAME}\""
-    done < ".env"
-fi
+for envfile in ['.env', '.env.claude']; do
+    if [ -f ${envfile} ]; then
+        echo "Loading environment variables from .env file..."
+        # Read ${envfile} file, skip comments and empty lines, export variables
+        while IFS= read -r line || [ -n "$line" ]; do
+            # Skip comments and empty lines
+            if [[ "$line" =~ ^[[:space:]]*# ]] || [[ -z "${line// }" ]]; then
+                continue
+            fi
+            # Export the variable
+            export "$line"
+            # Build tmux -e arguments dynamically
+            VAR_NAME=$(echo "$line" | cut -d'=' -f1)
+            ENV_VARS="$ENV_VARS -e $VAR_NAME=\"\${$VAR_NAME}\""
+        done < ${envfile}
+    fi
+done
 
 # Verify essential environment variables are set
 if [ -z "$ANTHROPIC_AUTH_TOKEN" ]; then
