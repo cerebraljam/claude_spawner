@@ -12,7 +12,7 @@ fi
 
 # Load environment variables from .env file if it exists
 ENV_VARS=""
-for envfile in ['.env', '.env.claude']; do
+for envfile in '.env' '.env.claude'; do
     if [ -f ${envfile} ]; then
         echo "Loading environment variables from .env file..."
         # Read ${envfile} file, skip comments and empty lines, export variables
@@ -25,7 +25,8 @@ for envfile in ['.env', '.env.claude']; do
             export "$line"
             # Build tmux -e arguments dynamically
             VAR_NAME=$(echo "$line" | cut -d'=' -f1)
-            ENV_VARS="$ENV_VARS -e $VAR_NAME=\"\${$VAR_NAME}\""
+            VAR_VALUE=$(echo "$line" | cut -d'=' -f2-)
+            ENV_VARS="$ENV_VARS -e $VAR_NAME=\"$VAR_VALUE\""
         done < ${envfile}
     fi
 done
