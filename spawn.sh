@@ -10,33 +10,23 @@ if [ -z "$SESSION_NAME" ] || [ -z "$FEATURE" ] || [ -z "$PROMPT" ]; then
     exit 1
 fi
 
-# Load environment variables from .env file if it exists
-ENV_VARS=""
-for envfile in '.env' '.env.claude'; do
-    if [ -f ${envfile} ]; then
-        echo "Loading environment variables from .env file..."
-        # Read ${envfile} file, skip comments and empty lines, export variables
-        while IFS= read -r line || [ -n "$line" ]; do
-            # Skip comments and empty lines
-            if [[ "$line" =~ ^[[:space:]]*# ]] || [[ -z "${line// }" ]]; then
-                continue
-            fi
-            # Export the variable
-            export "$line"
-            # Build tmux -e arguments dynamically
-            VAR_NAME=$(echo "$line" | cut -d'=' -f1)
-            VAR_VALUE=$(echo "$line" | cut -d'=' -f2-)
-            ENV_VARS="$ENV_VARS -e $VAR_NAME=\"$VAR_VALUE\""
-        done < ${envfile}
-    fi
-done
-
-# Verify essential environment variables are set
-if [ -z "$ANTHROPIC_AUTH_TOKEN" ]; then
-    echo "Warning: ANTHROPIC_AUTH_TOKEN not set. Make sure to set it in .env file or as environment variable."
-fi
-
 echo "Starting session '${SESSION_NAME}' in 'worktrees/${FEATURE}'"
 
-# Pass through all environment variables dynamically to tmux session
-eval "tmux new-session -d -s \"$SESSION_NAME\" $ENV_VARS \"cd worktrees/$FEATURE && claude config set hasTrustDialogAccepted true && claude '$PROMPT' --allowedTools 'Edit,Write,Bash,Replace,Read,Glob,Grep,LS,MultiEdit'\""
+# Create the tmux session
+TMUX= tmux new-session -d -s "$SESSION_NAME" sh -c "
+# Source environment files before changing directory
+[ -f .env ] && source .env
+[ -f .env.claude ] && source .env.claude
+
+# Change to the worktree directory
+cd worktrees/$FEATURE || { echo 'Failed to change to worktree directory'; exit 1; }
+
+# Export the session variables
+export SESSION_NAME='$SESSION_NAME'
+export FEATURE='$FEATURE'
+
+# Run claude with the prompt (tools configured in .claude/settings.json)
+claude '$PROMPT'
+"
+
+echo "Session '$SESSION_NAME' started. Attach with: tmux attach-session -t '$SESSION_NAME'"

@@ -12,8 +12,9 @@
       "Bash(tmux kill-session:*)",
       "Bash(tmux capture-pane:*)",
       "Bash(tmux send-keys:*)"
-      
     ],
     "deny": []
-  }
+  },
+  "allowedTools": ["Edit", "Write", "Bash", "Replace", "Read", "Glob", "Grep", "LS", "MultiEdit"],
+  "hasTrustDialogAccepted": true
 }

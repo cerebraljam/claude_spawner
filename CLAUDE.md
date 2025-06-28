@@ -15,7 +15,7 @@ Then read @TASKS.md to understand what has to be done, and what was done.
     * Ensure that the code isn't overfitting or cheating the tests.
     * Prefer running single tests, and not the whole test suite, for performance
 * Keep files small. 
-* Keep the functions small.
+* Keep the functions small and elegant. Keep in mind the goals of the project when writing code.
 * Use types variables.
 
 
@@ -40,4 +40,11 @@ Then read @TASKS.md to understand what has to be done, and what was done.
 
 # Summary instructions
 
-When you are using compact, be sure to keep the goal of the project in mind. For earlier changes, remember what was created and why. How a change was made is less important if you can remember what it was for. Keep recent tasks progression in mind as well as code changes. If some details should be remembered but keeping them in the context window would take too much space, save them into the MEMORY.md file.
+When you are compacting your memory, use the following strategy:
+* Keep the user's messages
+* keep all of your messages to the users (especially hypothesis and conclusions)
+* for tool execution, code written, etc. include in a one line that it was done, but do not include the content.
+* At the end, if knowing the content of a file or the output of a tool execution is critical to continue, take a note to read or execute the tool again once.
+* If the context window isn't going to be sufficiently reduced using that strategy, focus on high value messages and ignore rambling.
+* Be sure to keep the goal of the project well detailed in the context.
+* If some details should be remembered but keeping them in the context window would take too much space, save them into the @MEMORY.md file.
