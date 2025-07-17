@@ -1,4 +1,4 @@
-# to use the spawner
+# to use claude spawner
 
 This takes for granted that you followed the preparation steps in `README.md`, and you now have a `PROJECT_CLEAN.md`, `SPECS.md` and `TASKS.md` file.
 

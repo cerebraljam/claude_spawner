@@ -8,7 +8,7 @@ For this, you will:
 5. For each function, specify its **implementation location** (file path or service name) based on existing codebase analysis or logical service grouping
 6. **⚠️ CRITICAL: Component Isolation Requirements** - When specifying implementation locations, ensure:
    - **Core services** go in `src/services/` (main application)
-   - **Isolated components** use separate directories: `slack-simulator/`, `web-interface/`, `visualization/`
+   - **Isolated components** use separate directories, for example `slack-simulator/`, `web-interface/`, `visualization/`
    - **Different ports** assigned to each component (3000, 3001, 3002, 3003)
    - **Prefixed exports** to prevent naming conflicts during branch merges
    - **Component-specific environment variables** with prefixes
@@ -25,6 +25,7 @@ The user will repeat this loop until they are convinced that every parts of the 
 **CRITICAL**: Prevent merge conflicts by ensuring proper component isolation:
 
 ### Directory Structure Requirements
+For example:
 ```
 project/
 ├── src/services/           # Core application only

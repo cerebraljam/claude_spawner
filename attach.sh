@@ -12,7 +12,7 @@ while true; do
         echo "Attaching..."
         
         # Attach to the session
-        tmux attach-session -t "$unattached_session"
+        tmux attach-session -t "$unattached_session"        
         
         # When we detach or session ends, check if session still exists
         if ! tmux has-session -t "$unattached_session" 2>/dev/null; then
@@ -24,6 +24,7 @@ while true; do
         echo "Continuing to monitor..."
     fi
     
-    # Wait a bit before checking again
-    sleep 2
+    # Wait a random float between 2 and 3 seconds before checking again
+    sleep_time=$(awk -v min=2 -v max=7 'BEGIN{srand(); print min+rand()*(max-min)}')
+    sleep "$sleep_time"
 done

@@ -4,17 +4,26 @@
       "Bash(mkdir:*)",
       "Bash(find:*)",
       "Bash(ls:*)",
-      "Bash(bash spawn.sh:*)",
+      "Bash(curl:*)",
+      "Bash(bash spawn-coder.sh:*)",
       "Bash(git worktree:*)",
       "Bash(git worktree add:*)",
       "Bash(tmux new-session:*)",
       "Bash(tmux list-sessions:*)",
       "Bash(tmux kill-session:*)",
       "Bash(tmux capture-pane:*)",
-      "Bash(tmux send-keys:*)"
+      "Bash(tmux send-keys:*)",
+      "Edit",
+      "Write",
+      "Replace",
+      "Read",
+      "Glob",
+      "Grep",
+      "LS",
+      "MultiEdit"
     ],
-    "deny": []
-  },
-  "allowedTools": ["Edit", "Write", "Bash", "Replace", "Read", "Glob", "Grep", "LS", "MultiEdit"],
-  "hasTrustDialogAccepted": true
+    "deny": [
+      "Bash(git add .)"
+    ]
+  }
 }
