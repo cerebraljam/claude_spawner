@@ -42,7 +42,7 @@ Before implementing any task, ensure:
 
 A clean-up script should be created in ./foundation-tests/ and be called `9999_cleanup.sh`. This script will be executed by to stop any services starting the tests.
 
-Individual tests must start by importing test-utils/common.sh, test-utils/service-manager.sh (can be edited to match the architecture of the project).
+Individual tests must start by importing `test-utils/common.sh`, `test-utils/service-manager.sh` (should be modified to match the architecture of the project).
 Each test must start by listining which components are necessary for the test to work, by including something like:
 ```
 # Ensure required services are running
